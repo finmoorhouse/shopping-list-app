@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should not login if input is not valid. 1`] = `ShallowWrapper {}`;
+
+exports[`Should render LoginPage correctly. 1`] = `ShallowWrapper {}`;

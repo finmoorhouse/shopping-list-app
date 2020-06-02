@@ -1,9 +1,20 @@
-import { VisibilityFilters, ADD_ITEM, SET_ITEMS, LOGIN, REMOVE_ITEMS, SET_NAME, LOGOUT } from "./actions";
-const initialId = localStorage.getItem('id') ? localStorage.getItem('id'): null;
+import {
+  VisibilityFilters,
+  ADD_ITEM,
+  SET_ITEMS,
+  LOGIN,
+  REMOVE_ITEMS,
+  REMOVE_ITEM,
+  SET_NAME,
+  LOGOUT,
+} from "./actions";
+const initialId = localStorage.getItem("id")
+  ? localStorage.getItem("id")
+  : null;
 const initialState = {
   visibilityFilter: VisibilityFilters.SHOW_ALL,
   currentId: initialId,
-  groupName: '',
+  groupName: null,
   items: [],
 };
 
@@ -24,26 +35,35 @@ const todoApp = (state = initialState, action) => {
     case SET_ITEMS:
       return {
         ...state,
-        items:action.items,
-        groupName: action.groupName
+        items: action.items,
+        groupName: action.groupName,
       };
     case LOGIN:
       return {
         ...state,
-        currentId: action.newId
+        currentId: action.newId,
       };
     case LOGOUT:
       return {
         visibilityFilter: VisibilityFilters.SHOW_ALL,
         currentId: null,
-        groupName: '',
+        groupName: "",
         items: [],
-      }
+      };
     case SET_NAME:
       return {
         ...state,
-        groupName: action.newName
-      }
+        groupName: action.newName,
+      };
+    case REMOVE_ITEM:
+      return {
+        ...state,
+      };
+    case REMOVE_ITEMS:
+      return {
+        ...state,
+        items: [],
+      };
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 # Shopping List App
 
-This is a simple web app for grocery or shopping lists. A typical use case is coordinating a single list for a family or shared house.
+This is a simple web app for grocery or shopping lists. A typical use case is coordinating a single list for a family or shared house. Original, I know.
 
 **NOTE**: This is still under development and not remotely ready to see the light of day.
 

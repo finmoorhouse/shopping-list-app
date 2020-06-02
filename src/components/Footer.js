@@ -14,8 +14,8 @@ class Header extends React.Component {
     return (
       <div className="footer">
         <span onClick={this.copyId} onMouseEnter={this.handleMouseHover}>
-          <span>Your ID: </span>
-          <span>{this.props.currentId}</span>
+          <span>Group code: </span>
+          <span>{this.props.currentId || "Loading..."}</span>
           <FontAwesomeIcon icon={faCopy}/>
         </span>
       </div>

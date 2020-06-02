@@ -38,7 +38,7 @@ class Add extends React.Component {
     //this.props.history.push("/");
     if (this.state.title.length > 0) {
       this.setState({ errorMessage: "Adding item..." });
-      this.props.submitItem(
+      const submission = this.props.submitItem(
         {
           title: this.state.title,
           name: this.state.name,
@@ -46,10 +46,15 @@ class Add extends React.Component {
         },
         this.props.currentId
       );
-      console.log("Item added.");
+      submission.then((result)=>this.setState({ errorMessage: result }))
     } else {
       this.setState({ errorMessage: "Please name the item before adding." });
     }
+    this.setState({
+      description:"",
+      title:"",
+      name:""
+    })
   };
   render() {
     return (
@@ -58,7 +63,7 @@ class Add extends React.Component {
         <div className="container-main">
           <Link to="/view">View List</Link>
           <p>{this.state.errorMessage}</p>
-          <form onSubmit={this.onSubmit}>
+          <form onSubmit={this.onSubmit} className="add-form">
             <h4>Item</h4>
             <input
               placeholder="Description"
@@ -100,7 +105,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   submitItem: (item, id) =>
     dispatch(startAddItem(item, id)).then(() => {
-      return console.log("finished!");
+      return "Item added."
     }),
 });
 

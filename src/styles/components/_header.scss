@@ -5,24 +5,54 @@
   justify-content: space-between;
   align-items: baseline;
   padding: 10px 20px;
-  box-sizing: border-box;
+  font-size: $font-size-medium;
 }
 .header-logout {
   background: none;
-  font-size: 30px;
-  
-  color: white;
+  font-size: $font-size-medium;
+  color: $off-black;
   cursor: pointer;
-  svg{
+  svg {
     margin-left: 15px;
   }
 }
+
 .header-groupname {
+  color: lighten($off-black, 40%);
   input {
-  font-size: 30px;
-
+    font-size: $font-size-medium;
+    width: 200px;
     background: none;
-    color: white;
+    color: $off-black;
+    padding: 0;
+    margin-left: 10px;
   }
-
+  input:focus {
+    border-bottom: 3px solid lighten($off-black, 66%);
+  }
+}
+@media all and (max-width: $desktop-breakpoint) {
+  .header-logout__text {
+    display: none;
+  }
+  .header {
+    background: white;
+    font-size: $font-size-small;
+    input {
+      font-size: $font-size-small;
+    }
+  }
+  .header-logout__fa {
+    path {
+      font-size: 100px;
+    }
+  }
+  .header-groupname-intro__name {
+    display: none;
+  }
+}
+@media all and (max-width: $small-mobile-breakpoint) {
+  .header-groupname-intro {
+    display: none;
+  }
 }

@@ -10,10 +10,11 @@ import { startRemoveItems } from "../store/actions";
 
 const List = (props) => {
   const onComplete = () => {
-    this.setState(() => ({
-      items: [],
-    }));
-    props.markAsComplete();
+    // this.setState(() => ({
+    //   items: [],
+    // }));
+    console.log(props.currentId)
+    props.markAsComplete(props.currentId);
     console.log("removed");
   };
   const copyList = () => {
@@ -28,7 +29,7 @@ const List = (props) => {
       }
     );
   };
-  console.log("Here are your props: ", props);
+  console.log("Here are your props: ", props.items);
   return (
     <div className="container">
       <Header />
@@ -39,14 +40,15 @@ const List = (props) => {
         <button onClick={copyList}>Copy List</button>
         <button onClick={onComplete}>Mark as completed</button>
         <ul>
-          {props.items.map((item, index) => (
+          {props.items.length > 0 ? props.items.map((item, index) => (
             <ListItem
               key={item.id}
+              id={item.id}
               title={item.title}
               description={item.description}
               name={item.name}
             />
-          ))}
+          )) : <h1>No items.</h1>}
         </ul>
       </div>
       <Footer/>
@@ -57,11 +59,12 @@ const List = (props) => {
 const mapStateToProps = (state) => {
   return {
     items: state.items,
+    currentId: state.currentId
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  markAsComplete: () => dispatch(startRemoveItems()),
+  markAsComplete: (currentId) => dispatch(startRemoveItems(currentId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

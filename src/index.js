@@ -9,7 +9,7 @@ import configureStore from "./store/configureStore";
 
 const store = configureStore();
 const state = store.getState();
-
+console.log("Process: ",process.env)
 const renderApp = () => {
   ReactDOM.render(
     <Provider store={store}>

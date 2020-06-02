@@ -6,6 +6,7 @@ import database from "../firebase/firebase";
 export const ADD_ITEM = "ADD_ITEM";
 export const SET_ITEMS = "SET_ITEMS";
 export const REMOVE_ITEMS = "REMOVE_ITEMS";
+export const REMOVE_ITEM = "REMOVE_ITEM";
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const SET_NAME = "SET_NAME";
@@ -39,39 +40,50 @@ export const startAddItem = (newItem, id) => {
   };
 };
 //SET_EXPENSES
-export const setItems = (items,groupName) => ({
+export const setItems = (items, groupName) => ({
   type: "SET_ITEMS",
   items,
-  groupName
+  groupName,
 });
 
 export const startSetItems = (currentId) => {
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
     let name = "";
-    database.ref(`users/${currentId}/name`).once('value').then((snapshot)=>{
-      name = snapshot.val();
-    })
-    //Could chain these two?
+    database
+      .ref(`users/${currentId}/name`)
+      .once("value")
+      .then((snapshot) => {
+        name = snapshot.val();
+        console.log("Name: ", name);
+      });
     return database
-      .ref(`users/${currentId}/items`)
+      .ref(`users/${currentId}`)
       .once("value")
       .then((snapshot) => {
         const items = [];
-        snapshot.forEach((childSnapshot) => {
-          items.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val(),
-          });
-        });
-        dispatch(setItems(items,name));
+        let newItems = {};
+        let name = "";
+        if (snapshot.val()) {
+          newItems = snapshot.val().items;
+          name = snapshot.val().name;
+          for (const newItem in newItems) {
+            items.push({
+              id: newItem,
+              ...newItems[newItem],
+            });
+          }
+        }
+
+        console.log("Name is:", name);
+        dispatch(setItems(items, name));
       });
   };
 };
-export const startRemoveItems = () => {
+export const startRemoveItems = (id) => {
   return (dispatch) => {
     return database
-      .ref("items")
+      .ref(`users/${id}/items`)
       .set(null)
       .then(() => {
         dispatch(removeItems());
@@ -79,6 +91,19 @@ export const startRemoveItems = () => {
   };
 };
 
+export const startRemoveItem = (currentId, id) => {
+  return (dispatch) => {
+    return database
+      .ref(`users/${currentId}/items/${id}`)
+      .set(null)
+      .then(() => {
+        dispatch(removeItem());
+      });
+  };
+};
+const removeItem = () => {
+  return { type: REMOVE_ITEM };
+};
 const removeItems = () => {
   return { type: REMOVE_ITEMS };
 };
@@ -93,7 +118,7 @@ const login = (newId) => {
 export const logout = () => {
   localStorage.removeItem("id");
   return { type: LOGOUT };
-}
+};
 
 export const startLogin = (userId) => {
   localStorage.setItem("id", userId);
@@ -107,7 +132,7 @@ export const startLogin = (userId) => {
       })
       .then(() => {
         dispatch(login(userId));
-        //I feel like this is bad async practice... 
+        //I feel like this is bad async practice...
         dispatch(startSetItems(userId));
       });
   };

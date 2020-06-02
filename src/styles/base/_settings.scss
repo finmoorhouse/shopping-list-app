@@ -1,3 +1,14 @@
 // Colours
 $dark-grey:#282c34;
-$off-white:#aaaaaa;
+$off-white:#eeeeee;
+$off-black:#333333;
+$tasty-orange:#dd5533;
+$error-orange:#be5b5b;
+//Breakpoints
+$desktop-breakpoint:800px;
+$small-mobile-breakpoint:500px;
+//Sizes
+$font-size-medium:30px;
+$font-size-small:25px;
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
