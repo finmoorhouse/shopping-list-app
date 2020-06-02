@@ -6,7 +6,7 @@ let variables;
 let firebaseConfig;
 
 console.log("not production");
-if(process.env.API_KEY) {
+if(process.env.NODE_ENV=='production') {
   firebaseConfig = {
     apiKey: process.env.API_KEY,
     authDomain: process.env.AUTH_DOMAIN,
