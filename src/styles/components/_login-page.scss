@@ -1,45 +1,93 @@
 .login-button {
-  background: $tasty-orange;
-  padding: 20px;
+  background: saturate(lighten($tasty-orange,5%),10%);
+  padding: 10px 20px 20px 20px;
   border-bottom: 6px solid darken($tasty-orange, 10%);
   color: white;
   font-weight: bold;
+  border-radius: 2px;
   cursor: pointer;
   margin-bottom: 0;
   margin-top: 0;
+  font-size: 14px;
+  svg{
+    font-size: 30px;
+    position: relative;
+    top:6px;
+    margin-left: 8px;
+  }
 }
 .login-error {
   margin-top: 15px;
-  color: $error-orange;
+  color: white;
   max-width: 100%;
+  opacity: 0.8;
 }
 .login-button:hover {
-  border-bottom: 3px solid darken($tasty-orange, 10%);
+  border-bottom: 3px solid darken($tasty-orange, 6%);
   margin-top: 3px;
+}
+.login-wave__bottom{
+  bottom: 0;
+  position: absolute;
+}
+.login-wave__top{
+  top: 0;
+  position: absolute;
 }
 .login-text {
   width: 100%;
-  font-size: 2em;
   font-family:"Space Mono";
-  letter-spacing: 0.52rem;
+  font-size: calc(20px + 3vmin);
+  letter-spacing: 0.2rem;
   padding:0.2rem 0.8rem;
+  background: $off-black;
+  color: white;
+}
+.login-text::placeholder{
+  font-family: $sans-font-stack;
+  letter-spacing: 0;
+  font-size: calc(12px + 2vmin);
+
+}
+.container__login{
+  background-color: $tasty-orange;
 }
 .login-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin-top: 20px;
+  align-items: center;
 }
 .login {
+  color:white;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 600px;
+  margin-top:calc(45vh - 180px);
 }
 @media all and (max-width: $desktop-breakpoint) {
   .login {
     width: 100%;
     padding: 0 10vw;
   }
+}
+@media all and (max-width: $small-mobile-breakpoint) {
+  
+  .login-wave__bottom, .login-wave__top {
+    display: none;
+  }
+.login-button{
+  width:100%;
+  padding: 6px 12px 16px 12px;
+
+}
+.login-buttons{
+  flex-direction: column;
+  p{
+    margin:8px 0;
+  }
+}
 }

@@ -1,8 +1,22 @@
 .add-form{
   font-size: calc(10px + 2vmin);
-    input{
-        border-bottom:2px solid grey;
-    }
+display: flex;
+flex-direction: column;
+width:100%;
+padding:0 8%;
+padding-bottom: 40px;
+}
+.add-form-input{
+  background: lighten($off-white,3%);
+  width:100%;
+  border-radius: 2px;
+  padding: 15px;
+}
+.add-header-link{
+  display: block;
+ align-self: flex-end;
+  text-decoration: none;
+  width:200px;
 }
 @media all and (min-width:$desktop-breakpoint){
     

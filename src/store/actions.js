@@ -55,7 +55,7 @@ export const startSetItems = (currentId) => {
       .once("value")
       .then((snapshot) => {
         name = snapshot.val();
-        console.log("Name: ", name);
+        //console.log("Name: ", name);
       });
     return database
       .ref(`users/${currentId}`)
@@ -75,7 +75,7 @@ export const startSetItems = (currentId) => {
           }
         }
 
-        console.log("Name is:", name);
+        //console.log("Name is:", name);
         dispatch(setItems(items, name));
       });
   };
@@ -109,7 +109,7 @@ const removeItems = () => {
 };
 
 const login = (newId) => {
-  console.log("new id is: ", newId);
+  //console.log("new id is: ", newId);
   return {
     type: LOGIN,
     newId,
@@ -127,7 +127,7 @@ export const startLogin = (userId) => {
       .ref(`users/${userId}`)
       .once("value", (snapshot) => {
         if (snapshot.exists()) {
-          console.log("user exists!");
+          //console.log("user exists!");
         }
       })
       .then(() => {

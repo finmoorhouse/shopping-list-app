@@ -1,7 +1,7 @@
 import * as firebase from "firebase";
 
 //import variables from "./firebaseVariables";
-console.log(process.env.API_KEY);
+//console.log(process.env.API_KEY);
 let variables;
 let firebaseConfig;
 
@@ -17,7 +17,7 @@ if(process.env.NODE_ENV==='production') {
   };
 } else {
   variables = require("./firebaseVariables").default;
-  console.log(variables);
+  //console.log(variables);
   firebaseConfig = {
     apiKey: variables.apiKey,
     authDomain: variables.authDomain,

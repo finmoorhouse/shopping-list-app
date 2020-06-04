@@ -20,7 +20,7 @@ class Header extends React.Component {
     const groupName = e.target.value;
     this.setState({ groupName }, () => {
       if (this.state.groupName !== this.props.groupName) {
-        //console.log(`Props: ${this.props.groupName}, state: ${this.state.groupName}`)
+        ////console.log(`Props: ${this.props.groupName}, state: ${this.state.groupName}`)
         this.setState({ saveMessage: "Save" });
       } else {
         this.setState({ saveMessage: "" });
@@ -49,6 +49,8 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header">
+      <h1 className="header-title">Simple Shopping List</h1>
+        
         <div className="header-groupname">
           <span className="header-groupname-intro">
             Group<span className="header-groupname-intro__name"> name</span>:
@@ -60,7 +62,7 @@ class Header extends React.Component {
             onChange={this.onNameChange}
           />
           {this.state.saveMessage && (
-            <button onClick={this.setName}>{this.state.saveMessage}</button>
+            <button className="header-save" onClick={this.setName}>{this.state.saveMessage}</button>
           )}
         </div>
         <button className="header-logout" onClick={this.onLogout}>

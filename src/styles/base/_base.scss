@@ -10,15 +10,20 @@ body {
   font-size: calc(10px + 2vmin);
   color: $off-black;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: $sans-font-stack;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+#root{
+  min-width: 100vw;
+  min-height: 100vh;
 }
 *{
   box-sizing: border-box;
 }
+/*:focus {
+  outline: none;
+}*/
 a {
   color: $tasty-orange;
 }
@@ -26,10 +31,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.component-header{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 button {
   border: none;
   padding: 10px;
   margin: 5px;
+}
+.button_rounded{
+  background: $tasty-orange;
+  color: white;
+  border-radius: 100px;
+  padding: 10px 50px;
+  margin-top:10px;
+  font-size: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 input {
   border: none;
@@ -44,7 +65,7 @@ h4 {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  
+  align-items: center;
 }
 .container-main {
   width: $desktop-breakpoint;
@@ -53,7 +74,7 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 10px;
   box-shadow: 5px 5px 30px rgba(110, 110, 110, 0.1);
 }
@@ -65,11 +86,17 @@ h4 {
   background: $tasty-orange;
   color: white;
 }
+.fade{
+  opacity: 0.6;
+}
 
 @media all and (max-width:$desktop-breakpoint){
   .container-main {
-    width:100%;
+    width:93%;
     height: 100%;
-  box-shadow: none;
+    margin:0;
+    position: relative;
+    top:-16px;
+  box-shadow:3px 3px 20px rgba(110, 110, 110, 0.1);
   }
 }

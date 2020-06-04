@@ -46,22 +46,28 @@ class Add extends React.Component {
         },
         this.props.currentId
       );
-      submission.then((result)=>this.setState({ errorMessage: result }))
+      submission.then((result) => this.setState({ errorMessage: result }));
     } else {
       this.setState({ errorMessage: "Please name the item before adding." });
     }
     this.setState({
-      description:"",
-      title:"",
-      name:""
-    })
+      description: "",
+      title: "",
+      name: "",
+    });
   };
   render() {
     return (
       <div className="container">
         <Header />
         <div className="container-main">
-          <Link to="/view">View List</Link>
+          <div className="container-header">
+            <Link to="/view" className="add-header-link">
+              View List
+            </Link>
+          <h1 className="list-header-title">Add Item</h1>
+
+          </div>
           <p>{this.state.errorMessage}</p>
           <form onSubmit={this.onSubmit} className="add-form">
             <h4>Item</h4>
@@ -70,6 +76,7 @@ class Add extends React.Component {
               type="text"
               value={this.state.title}
               onChange={this.onTitleChange}
+              className="add-form-input"
               autoFocus
             />
             <h4>Name</h4>
@@ -77,6 +84,7 @@ class Add extends React.Component {
               placeholder="Your Name"
               type="text"
               value={this.state.name}
+              className="add-form-input"
               onChange={this.onNameChange}
             />
             <h4>Description</h4>
@@ -84,13 +92,14 @@ class Add extends React.Component {
               placeholder="Note"
               type="text"
               value={this.state.description}
+              className="add-form-input"
               onChange={this.onDescriptionChange}
             />
             <br />
-            <button>Add To List</button>
+            <button className="button_rounded">Add To List</button>
           </form>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
@@ -105,7 +114,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   submitItem: (item, id) =>
     dispatch(startAddItem(item, id)).then(() => {
-      return "Item added."
+      return "Item added.";
     }),
 });
 
