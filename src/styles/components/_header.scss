@@ -1,39 +1,56 @@
 .header {
   width: 100%;
-  margin:0;
+  margin: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
   padding: 0 20px 16px 20px;
   * {
-    font-size: $font-size-medium ;
+    font-size: $font-size-medium;
     color: $off-black;
   }
 }
-.header-title{
-  display:inline;
-  align-self: flex-end;
+.header-container {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  
 }
-.container-header{
-  width:100%;
+.container-header {
+  width: 100%;
 }
-.header-save{
+.header-title {
+  color: lighten($tasty-orange, 50%);
+  position: relative;
+  margin: 0;
+  padding: 10px 20px;
+  font-size: $font-size-title;
+  font-family: $sans-font-stack;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-align: left;
+  position: relative;
+  width: 100%;
+  background: $tasty-orange;
+}
+.header-save {
   border-radius: 4px;
   background: $tasty-orange;
-  color:white;
+  color: white;
   font-size: $font-size-small;
-  margin:0 0 0 5px;
-  padding: 6px 8px 8px 8px;
+  margin: 0 0 0 5px;
+  padding: 6px 10px 8px 10px;
   cursor: pointer;
   position: relative;
-  top:-5px;
+  top: -5px;
 }
-
 
 .header-logout {
   background: none;
-  
+
   color: $off-black;
   cursor: pointer;
   svg {
@@ -57,20 +74,19 @@
   }
 }
 @media all and (max-width: $desktop-breakpoint) {
-  .header-logout__text {
-    display: none;
-  }
+
   .header {
     * {
       color: white;
       font-size: $font-size-small;
     }
-    background: $tasty-orange;
-
   }
-  .header-save{
+  .header-container {
+    background: $tasty-orange;
+  }
+  .header-save {
     background: white;
-    color:$tasty-orange;
+    color: $tasty-orange;
     font-size: $font-size-xsmall;
   }
   .header-logout__fa {
@@ -78,8 +94,8 @@
       font-size: 100px;
     }
   }
-  .header-groupname{
-    input{
+  .header-groupname {
+    input {
       width: 40vw;
       max-width: 200px;
     }
@@ -87,9 +103,16 @@
   .header-groupname-intro__name {
     display: none;
   }
+  .header-title {
+    font-size: $font-size-small;
+    padding-bottom: 0;
+  }
 }
 @media all and (max-width: $small-mobile-breakpoint) {
   .header-groupname-intro {
+    display: none;
+  }
+  .header-logout__text {
     display: none;
   }
 }

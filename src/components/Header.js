@@ -48,27 +48,33 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <div className="header">
-      <h1 className="header-title">Simple Shopping List</h1>
-        
-        <div className="header-groupname">
-          <span className="header-groupname-intro">
-            Group<span className="header-groupname-intro__name"> name</span>:
-          </span>
-          <input
-            placeholder="Enter group name."
-            type="text"
-            value={this.state.groupName || ""}
-            onChange={this.onNameChange}
-          />
-          {this.state.saveMessage && (
-            <button className="header-save" onClick={this.setName}>{this.state.saveMessage}</button>
-          )}
+      <div className="header-container">
+        <div className="header-title">Simple Shopping List</div>
+        <div className="header">
+          <div className="header-groupname">
+            <span className="header-groupname-intro">
+              Group<span className="header-groupname-intro__name"> name</span>:
+            </span>
+            <input
+              placeholder="Enter group name."
+              type="text"
+              value={this.state.groupName || ""}
+              onChange={this.onNameChange}
+            />
+            {this.state.saveMessage && (
+              <button className="header-save" onClick={this.setName}>
+                {this.state.saveMessage}
+              </button>
+            )}
+          </div>
+          <button className="header-logout" onClick={this.onLogout}>
+            <span className="header-logout__text">Log Out</span>
+            <FontAwesomeIcon
+              className="header-logout__fa"
+              icon={faSignOutAlt}
+            />
+          </button>
         </div>
-        <button className="header-logout" onClick={this.onLogout}>
-          <span className="header-logout__text">Log Out</span>
-          <FontAwesomeIcon className="header-logout__fa" icon={faSignOutAlt} />
-        </button>
       </div>
     );
   }

@@ -1,23 +1,51 @@
-.add-form{
+.add-form {
   font-size: calc(10px + 2vmin);
-display: flex;
-flex-direction: column;
-width:100%;
-padding:0 8%;
-padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 6%;
+  padding-bottom: 40px;
+  margin-top: 20px;
 }
-.add-form-input{
-  background: lighten($off-white,3%);
-  width:100%;
-  border-radius: 2px;
+.add-form-input {
+  background: lighten($off-white, 3%);
+  font-size: $font-size-medium;
+  color: lighten($off-black, 4%);
+  width: 100%;
+  border-radius: 4px;
+  border: 2px solid lighten($off-black, 70%);
   padding: 15px;
 }
-.add-header-link{
-  display: block;
- align-self: flex-end;
-  text-decoration: none;
-  width:200px;
+.add-form-input__required{
+  border: 2px solid lighten($tasty-orange, 10%);
+
 }
-@media all and (min-width:$desktop-breakpoint){
-    
+.add-header-link {
+  display: block;
+  align-self: flex-end;
+  text-decoration: none;
+  width: 200px;
+}
+.list-header-message {
+  margin: 0;
+  align-self: flex-start;
+  margin-left: 6%;
+  color: lighten($off-black, 20%);
+}
+.add-button{
+  margin:26px 0 10px 0;
+  border-radius: 6px;
+  font-size: $font-size-medium;
+}
+.add-form-formdescription{
+  margin:10px 0;
+}
+
+@media all and (max-width: $desktop-breakpoint) {
+  .add-form-input {
+    font-size: $font-size-small;
+  }
+  .add-button{
+    font-size: $font-size-small;
+  }
 }

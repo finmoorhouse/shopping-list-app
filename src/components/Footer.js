@@ -22,6 +22,7 @@ class Header extends React.Component {
   }
   render() {
     return (
+      <div className="footer-container">
       <div className="footer">
         <span onClick={this.copyId} onMouseEnter={this.handleMouseHover}>
           <span className="fade footer_label">Group code: </span>
@@ -29,6 +30,7 @@ class Header extends React.Component {
         
           <FontAwesomeIcon className='footer-copy' icon={faCopy}/>
         </span>
+      </div>
       </div>
     );
   }

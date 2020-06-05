@@ -17,18 +17,17 @@
 }
 .list-header-title{
   margin-top: 6px;
-  margin-left:3vw;
+  margin-left:6%;
+  margin-bottom: 10px;
 }
 .list-empty {
-    margin-bottom: 12vh;
+    margin-bottom: 6vh;
+    margin-top: 6vh;
+
     p{
         opacity:0.7;
     }
   }
 @media all and (max-width: $desktop-breakpoint) {
-  .list-empty {
-    margin-top: 6vh;
-    margin-bottom: 2vh;
 
-  }
 }

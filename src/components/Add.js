@@ -4,6 +4,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { connect } from "react-redux";
 import { startAddItem } from "../store/actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 
 //import { connect } from "react-redux";
 
@@ -61,42 +63,47 @@ class Add extends React.Component {
       <div className="container">
         <Header />
         <div className="container-main">
-          <div className="container-header">
+          <div className="component-header">
             <Link to="/view" className="add-header-link">
-              View List
+              View List  <FontAwesomeIcon
+              className="header-logout__fa"
+              icon={faHandPointRight}
+            />
             </Link>
           <h1 className="list-header-title">Add Item</h1>
-
           </div>
-          <p>{this.state.errorMessage}</p>
+          <p className='list-header-message'>{this.state.errorMessage || "Add item below."}</p>
           <form onSubmit={this.onSubmit} className="add-form">
-            <h4>Item</h4>
+            <h4 className="add-form-formdescription">Item</h4>
             <input
-              placeholder="Description"
+              placeholder="Item Description"
               type="text"
               value={this.state.title}
               onChange={this.onTitleChange}
-              className="add-form-input"
+              className="add-form-input add-form-input__required"
               autoFocus
+              tabindex="1"
             />
-            <h4>Name</h4>
+            <h4 className="add-form-formdescription">Name</h4>
             <input
-              placeholder="Your Name"
+              placeholder="Your name (optional)"
               type="text"
               value={this.state.name}
               className="add-form-input"
               onChange={this.onNameChange}
+              tabindex="2"
             />
-            <h4>Description</h4>
+            <h4 className="add-form-formdescription">Note</h4>
             <input
-              placeholder="Note"
+              placeholder="Note (optional)"
               type="text"
               value={this.state.description}
               className="add-form-input"
               onChange={this.onDescriptionChange}
+              tabindex="3"
             />
             <br />
-            <button className="button_rounded">Add To List</button>
+            <button className="button_rounded add-button">Add To List</button>
           </form>
         </div>
         <Footer />
