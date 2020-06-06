@@ -21,6 +21,7 @@
   color: white;
   max-width: 100%;
   opacity: 0.8;
+  font-size: $font-size-small;
 }
 .login-button:hover {
   border-bottom: 3px solid darken($tasty-orange, 6%);
@@ -51,6 +52,7 @@
 }
 .container__login{
   background-color: $tasty-orange;
+  height: 100vh;
 }
 .login-buttons {
   display: flex;
@@ -67,6 +69,7 @@
   flex-direction: column;
   width: 600px;
   margin-top:calc(45vh - 180px);
+  z-index: 1;
 }
 @media all and (max-width: $desktop-breakpoint) {
   .login {

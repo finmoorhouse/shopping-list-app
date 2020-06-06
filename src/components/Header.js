@@ -49,7 +49,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header-container">
-        <div className="header-title">Simple Shopping List</div>
+        <div className="header-title">Shopping List</div>
         <div className="header">
           <div className="header-groupname">
             <span className="header-groupname-intro">

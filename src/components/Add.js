@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import { connect } from "react-redux";
 import { startAddItem } from "../store/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 //import { connect } from "react-redux";
 
@@ -64,13 +64,13 @@ class Add extends React.Component {
         <Header />
         <div className="container-main">
           <div className="component-header">
-            <Link to="/view" className="add-header-link">
+              <h1 className="component-header-title">Add Item</h1>
+            <Link to="/view" className="header-link">
               View List  <FontAwesomeIcon
               className="header-logout__fa"
-              icon={faHandPointRight}
+              icon={faArrowRight}
             />
             </Link>
-          <h1 className="list-header-title">Add Item</h1>
           </div>
           <p className='list-header-message'>{this.state.errorMessage || "Add item below."}</p>
           <form onSubmit={this.onSubmit} className="add-form">
@@ -80,7 +80,7 @@ class Add extends React.Component {
               type="text"
               value={this.state.title}
               onChange={this.onTitleChange}
-              className="add-form-input add-form-input__required"
+              className="add-form-input add-form-input__required add-form-input_capitalise"
               autoFocus
               tabindex="1"
             />
@@ -89,7 +89,7 @@ class Add extends React.Component {
               placeholder="Your name (optional)"
               type="text"
               value={this.state.name}
-              className="add-form-input"
+              className="add-form-input add-form-input_capitalise"
               onChange={this.onNameChange}
               tabindex="2"
             />

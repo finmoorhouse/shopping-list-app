@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import Header from "./Header";
 import Footer from "./Footer";
 import { startRemoveItems } from "../store/actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 //import { connect } from "react-redux";
 
@@ -35,16 +37,19 @@ const List = (props) => {
       <Header />
       <div className="container-main ">
         <div className="component-header">
-          <Link to="/add" className="list-header-link">
-            🠐 Add Item
+          <h1 className="component-header-title">Our List</h1>
+          <Link to="/add" className="header-link">
+          <FontAwesomeIcon
+              className="header-logout__fa"
+              icon={faArrowLeft}
+            />  Add Item
           </Link>
-          <h1 className="list-header-title">Our List</h1>
-          {props.items.length > 0 && (
+          {/* props.items.length > 0 && (
             <>
               <button onClick={copyList}>Copy List</button>
-              <button onClick={onComplete}>Mark as completed</button>
+              
             </>
-          )}
+          ) */}
         </div>
         <ul className="list-container">
           {props.items.length > 0 ? (
@@ -57,6 +62,7 @@ const List = (props) => {
                 name={item.name}
               />
             ))
+            
           ) : (
             <div className="list-empty">
               <h3 className="list-emptytext">Your list is empty</h3>
@@ -66,6 +72,10 @@ const List = (props) => {
               </Link>
             </div>
           )}
+          {props.items.length > 0 && 
+            <button onClick={onComplete} className="button_rounded add-button">Mark All As Complete</button>
+          
+          }
         </ul>
       </div>
       <Footer />

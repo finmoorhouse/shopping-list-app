@@ -34,14 +34,23 @@ code {
 .component-header{
   width:100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   border-bottom:3px solid $off-white;
+  padding:0 6%;
 }
 button {
   border: none;
   padding: 10px;
   margin: 5px;
+}
+.component-header-title{
+  font-size: $font-size-large;
+}
+.header-link{
+  text-decoration: none;
+  font-size: $font-size-medium;
 }
 .button_rounded{
   background: $tasty-orange;
@@ -80,6 +89,9 @@ h4 {
   padding: 0;
   box-shadow: 5px 5px 30px rgba(110, 110, 110, 0.1);
 }
+.strikethrough{
+  text-decoration: 4px line-through solid lighten($success-green,20%);
+}
 ::-moz-selection {
   background: $tasty-orange;
   color: white;
@@ -100,5 +112,8 @@ h4 {
     position: relative;
     top:-16px;
   box-shadow:3px 3px 20px rgba(110, 110, 110, 0.1);
+  }
+  .header-link{
+    font-size: $font-size-small;
   }
 }

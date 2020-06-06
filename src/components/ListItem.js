@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { startRemoveItem } from "../store/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
-import { faSquare } from "@fortawesome/free-regular-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCircle } from "@fortawesome/free-regular-svg-icons";
 
 const ListItem = ({
   title,
@@ -17,16 +17,22 @@ const ListItem = ({
     //console.log(id, currentId);
     markAsComplete(currentId, id);
     //console.log("removed");
-    setIcon(faCheckSquare);
+    setIcon(faCheckCircle);
   };
-  const [icon, setIcon] = useState(faSquare);
+  const [icon, setIcon] = useState(faCircle);
   return (
     <div className="listitem">
-      <FontAwesomeIcon onClick={onRemoveItem} icon={icon} />
-      <h4>{title}</h4>
-      {name && <p>{`Added by: ${name}.`}</p>}
-      {description && <p>{description}</p>}
+      <div className="listitem-left">
 
+      <FontAwesomeIcon onClick={onRemoveItem} icon={icon} />
+      </div>
+      <div className="listitem-right">
+      <div className="listitem-right_main"> 
+      <h4 className={"listitem-title " , icon==faCheckCircle&&"strikethrough"}>{title}</h4>
+      {name &&<p className="listitem-description"><span className="fade">Added by: </span>{name}</p>}
+      </div>
+      {description && <p className="listitem-description listitem-description_note"><span className="fade">Note: </span>{description}</p>}
+</div>
     </div>
   );
 };

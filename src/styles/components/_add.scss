@@ -16,36 +16,34 @@
   border: 2px solid lighten($off-black, 70%);
   padding: 15px;
 }
-.add-form-input__required{
+.add-form-input__required {
   border: 2px solid lighten($tasty-orange, 10%);
+}
+.add-form-input_capitalise {
+  text-transform: capitalize;
+}
 
-}
-.add-header-link {
-  display: block;
-  align-self: flex-end;
-  text-decoration: none;
-  width: 200px;
-}
 .list-header-message {
   margin: 0;
+  margin-top: 12px;
   align-self: flex-start;
   margin-left: 6%;
   color: lighten($off-black, 20%);
 }
-.add-button{
-  margin:26px 0 10px 0;
+.add-button {
+  margin: 26px 0 10px 0;
   border-radius: 6px;
   font-size: $font-size-medium;
 }
-.add-form-formdescription{
-  margin:10px 0;
+.add-form-formdescription {
+  margin: 10px 0;
 }
 
 @media all and (max-width: $desktop-breakpoint) {
   .add-form-input {
     font-size: $font-size-small;
   }
-  .add-button{
+  .add-button {
     font-size: $font-size-small;
   }
 }

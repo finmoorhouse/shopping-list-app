@@ -4,19 +4,32 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 0 20px 16px 20px;
+
+  align-items: center;
+  padding: 0 20px 2px 0px;
   * {
     font-size: $font-size-medium;
-    color: $off-black;
+    color: white;
   }
 }
 .header-container {
-  display: block;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
   padding: 0;
   margin: 0;
-  
+  justify-content: space-between;
+  width: 100%;
+  background: $tasty-orange;
+  margin-bottom: 30px;
+  box-shadow: 5px 0 10px rgba(110, 110, 110, 0.2);
+  ::-moz-selection {
+    background: white;
+    color: $tasty-orange;
+  }
+  ::selection {
+    background: white;
+    color: $tasty-orange;
+  }
 }
 .container-header {
   width: 100%;
@@ -25,9 +38,11 @@
   color: lighten($tasty-orange, 50%);
   position: relative;
   margin: 0;
-  padding: 10px 20px;
+  display: flex;
+  padding: 5px 20px;
+  align-items: center;
   font-size: $font-size-title;
-  font-family: $sans-font-stack;
+  font-family: $mono-font-stack;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 3px;
@@ -35,11 +50,12 @@
   position: relative;
   width: 100%;
   background: $tasty-orange;
+  flex-basis: 50%;
 }
 .header-save {
   border-radius: 4px;
-  background: $tasty-orange;
-  color: white;
+  background: white;
+  color: $tasty-orange;
   font-size: $font-size-small;
   margin: 0 0 0 5px;
   padding: 6px 10px 8px 10px;
@@ -70,23 +86,32 @@
     margin-left: 10px;
   }
   input:focus {
-    border-bottom: 2px solid lighten($off-black, 60%);
+    border-bottom: 2px solid lighten($tasty-orange, 10%);
+  }
+}
+@media all and (max-width:1000px){
+  .header {
+    * {
+      font-size: $font-size-small;
+    }
+  }
+  .header-container{
+    flex-direction: column;
+  }
+    .header {
+
+    padding: 0 20px 16px 20px;
   }
 }
 @media all and (max-width: $desktop-breakpoint) {
 
-  .header {
-    * {
-      color: white;
-      font-size: $font-size-small;
-    }
-  }
   .header-container {
-    background: $tasty-orange;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0;
   }
   .header-save {
-    background: white;
-    color: $tasty-orange;
+ 
     font-size: $font-size-xsmall;
   }
   .header-logout__fa {
@@ -104,7 +129,6 @@
     display: none;
   }
   .header-title {
-    font-size: $font-size-small;
     padding-bottom: 0;
   }
 }
