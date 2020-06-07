@@ -9,9 +9,15 @@
     svg {
         font-size: 50px;
         /*color:lighten($success-green,20%);*/
-        color:lighten($tasty-orange,2%);
         cursor: pointer;
     }
+}
+.tick-on{
+    color:lighten($tasty-orange,2%);
+
+}
+.tick-off{
+    color:lighten($off-black,20%)
 }
 .listitem-left{
     width:100px;

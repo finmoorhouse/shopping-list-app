@@ -24,7 +24,7 @@ const ListItem = ({
     <div className="listitem">
       <div className="listitem-left">
 
-      <FontAwesomeIcon onClick={onRemoveItem} icon={icon} />
+      <FontAwesomeIcon onClick={onRemoveItem} icon={icon} className={icon===faCircle ? "tick-off" : "tick-on"}/>
       </div>
       <div className="listitem-right">
       <div className="listitem-right_main"> 
