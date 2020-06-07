@@ -1,4 +1,6 @@
-import * as firebase from "firebase";
+import  firebase from "firebase/app";
+import "firebase/firebase-database"
+import "firebase/firebase-auth"
 
 //import variables from "./firebaseVariables";
 //console.log(process.env.API_KEY);

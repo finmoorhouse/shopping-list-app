@@ -82,7 +82,7 @@ class Add extends React.Component {
               onChange={this.onTitleChange}
               className="add-form-input add-form-input__required add-form-input_capitalise"
               autoFocus
-              tabindex="1"
+              tabIndex="1"
             />
             <h4 className="add-form-formdescription">Name</h4>
             <input
@@ -91,7 +91,7 @@ class Add extends React.Component {
               value={this.state.name}
               className="add-form-input add-form-input_capitalise"
               onChange={this.onNameChange}
-              tabindex="2"
+              tabIndex="2"
             />
             <h4 className="add-form-formdescription">Note</h4>
             <input
@@ -100,7 +100,7 @@ class Add extends React.Component {
               value={this.state.description}
               className="add-form-input"
               onChange={this.onDescriptionChange}
-              tabindex="3"
+              tabIndex="3"
             />
             <br />
             <button className="button_rounded add-button">Add To List</button>

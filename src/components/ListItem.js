@@ -28,7 +28,7 @@ const ListItem = ({
       </div>
       <div className="listitem-right">
       <div className="listitem-right_main"> 
-      <h4 className={"listitem-title " , icon==faCheckCircle&&"strikethrough"}>{title}</h4>
+      <h4 className={"listitem-title ".concat(icon===faCheckCircle&&"strikethrough")}>{title}</h4>
       {name &&<p className="listitem-description"><span className="fade">Added by: </span>{name}</p>}
       </div>
       {description && <p className="listitem-description listitem-description_note"><span className="fade">Note: </span>{description}</p>}

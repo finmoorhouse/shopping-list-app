@@ -19,18 +19,18 @@ const List = (props) => {
     props.markAsComplete(props.currentId);
     //console.log("removed");
   };
-  const copyList = () => {
-    navigator.clipboard.writeText("The list.").then(
-      function () {
-        //console.log("Copied.");
-        /* clipboard successfully set */
-      },
-      function () {
-        /* clipboard write failed */
-        //console.log("Copy failed.");
-      }
-    );
-  };
+  // const copyList = () => {
+  //   navigator.clipboard.writeText("The list.").then(
+  //     function () {
+  //       //console.log("Copied.");
+  //       /* clipboard successfully set */
+  //     },
+  //     function () {
+  //       /* clipboard write failed */
+  //       //console.log("Copy failed.");
+  //     }
+  //   );
+  // };
   //console.log("Here are your props: ", props.items);
   return (
     <div className="container">
@@ -55,7 +55,7 @@ const List = (props) => {
           {props.items.length > 0 ? (
             props.items.map((item, index) => (
               <ListItem
-                key={item.id}
+                key={item.id || (index)}
                 id={item.id}
                 title={item.title}
                 description={item.description}

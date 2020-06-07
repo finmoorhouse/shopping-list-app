@@ -49,14 +49,14 @@ export const setItems = (items, groupName) => ({
 export const startSetItems = (currentId) => {
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
-    let name = "";
-    database
-      .ref(`users/${currentId}/name`)
-      .once("value")
-      .then((snapshot) => {
-        name = snapshot.val();
-        //console.log("Name: ", name);
-      });
+
+    // database
+    //   .ref(`users/${currentId}/name`)
+    //   .once("value")
+    //   .then((snapshot) => {
+    //     let name = snapshot.val();
+    //     //console.log("Name: ", name);
+    //   });
     return database
       .ref(`users/${currentId}`)
       .once("value")
